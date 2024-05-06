@@ -1,0 +1,90 @@
+﻿@model IEnumerable<FarmCentralApp.Models.Farmer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #d3f9d8; /* Nice green background */
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        color: #006400; /* Dark green */
+        margin-top: 50px;
+    }
+
+    a {
+        color: #006400; /* Dark green */
+        text-decoration: none;
+    }
+
+    table {
+        width: 80%;
+        margin: auto;
+        background-color: #f0fff4; /* Light green background for table */
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #006400; /* Dark green header */
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #d3f9d8; /* Alternate row background color */
+    }
+
+    tr:nth-child(odd) {
+        background-color: #f0fff4; /* Alternate row background color */
+    }
+</style>
+
+<h1>Farmers</h1>
+
+<p>
+    <a asp-action="Register">Add new farmer</a>
+    <div>
+        <a asp-controller="Home" asp-action="Emp">Main menu</a>
+    </div>
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Farmer ID
+            </th>
+            <th>
+                Farmer Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FarmerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FarmerName)
+                </td>
+                <td>
+                    <a asp-action="Products" asp-route-id="@item.FarmerId">View Products</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

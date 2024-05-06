@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d3f9d8; /* Nice green background */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #006400; /* Dark green text color */
+        }
+
+        h2 {
+            margin-top: 50px;
+        }
+
+        .info-block {
+            background-color: #f0fff4; /* Light green background for blocks */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #006400; /* Dark green link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            a:hover {
+                color: #004d00; /* Dark green hover color */
+            }
+
+        img {
+            margin-top: 20px;
+            width: 300px; /* Adjust image size as needed */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+    </style>
+</head>
+<body>
+    <h2>Main Menu</h2>
+
+    <div class="info-block">
+        <h3>Products</h3>
+        <p>Explore our range of products.</p>
+        <p>@Html.ActionLink("View Products", "Index", "Products")</p>
+    </div>
+
+    <div class="info-block">
+        <h3>Update Password</h3>
+        <p>Update your password securely.</p>
+        <p>@Html.ActionLink("Update Password", "Reset", "Farmers")</p>
+    </div>
+</body>
+</html>

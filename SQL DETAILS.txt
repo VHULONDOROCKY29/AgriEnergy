@@ -1,0 +1,11 @@
+﻿
+INSERT INTO Employee(ADMIN_ID, PASSWORD) VALUES('Admin229', 'admin680');
+SELECT * FROM Employee;
+
+
+INSERT INTO Farmer(FARMER_ID, FARMER_NAME, PASSWORD) VALUES('129', 'Vhulondo', '9211');
+SELECT * FROM Farmer;
+
+
+
+

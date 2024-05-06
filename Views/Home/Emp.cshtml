@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d3f9d8; /* Nice green background */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #006400; /* Dark green text color */
+        }
+
+        h2 {
+            margin-top: 50px;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: #006400; /* Dark green link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            a:hover {
+                color: #004d00; /* Dark green hover color */
+            }
+
+        /* New styles for employee information */
+        .employee-info {
+            margin-top: 50px;
+            border: 2px solid #006400; /* Dark green border */
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow effect */
+        }
+
+            .employee-info h3 {
+                color: #006400; /* Dark green header color */
+            }
+
+            .employee-info p {
+                margin-top: 10px;
+                font-size: 1rem;
+            }
+    </style>
+</head>
+<body>
+    <h2>Main Menu</h2>
+
+    <p>@Html.ActionLink("View Farmer Data", "Index", "Farmers")</p>
+
+    <!-- Employee Information Section -->
+    <div class="employee-info">
+        <h3>Employee Information</h3>
+        <p>Name: Vhulondo Maphiri</p>
+        <p>Position: Developer</p>
+        <p>Department: Information Technology</p>
+        <p>Email: st1010278@rcconnect.edu.za</p>
+        <!-- Add more employee information as needed -->
+    </div>
+</body>
+</html>
+

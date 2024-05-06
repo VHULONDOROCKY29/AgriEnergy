@@ -1,0 +1,125 @@
+﻿@model IEnumerable<FarmCentralApp.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d3f9d8; /* Nice green background */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #006400; /* Dark green text color */
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 2rem;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid #006400; /* Dark green border */
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0fff4; /* Light green background */
+        }
+
+        td:nth-child(odd) {
+            background-color: #f0fff4; /* Light green background for odd rows */
+        }
+
+        td:nth-child(even) {
+            background-color: #e0ffe0; /* Lighter green background for even rows */
+        }
+
+        a {
+            color: #006400; /* Dark green link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            a:hover {
+                color: #004d00; /* Dark green hover color */
+            }
+    </style>
+</head>
+<body>
+    <h1>Products</h1>
+    <p>
+        <a asp-controller="Home" asp-action="New">Main menu</a>
+    </p>
+    <p>
+        <a asp-action="Create">Add new product</a>
+    </p>
+    <form>
+        @*<p>
+        <input type="submit" value="Show all products" />
+        </p>*@
+    </form>
+
+    <form asp-controller="Products" asp-action="Index">
+        <p>
+            <input type="submit" value="Show all products" /> | Product Type: <input type="text" name="SearchString" />
+            <input type="submit" value="Filter" /> | Date Range: <input type="date" name="fromDate" />
+            <input type="date" name="toDate" />
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Quantity</th>
+                <th>Product Type</th>
+                <th>Date</th>
+                <th>Farmer ID</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                    <td>R @Html.DisplayFor(modelItem => item.ProductPrice) . 00</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductQuantity)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductType)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Farmer.FarmerId)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ProductId">Update</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
